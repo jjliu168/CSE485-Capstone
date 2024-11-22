@@ -35,7 +35,7 @@ def switch_api_key():
 # Configure the Generative AI model
 def configure_genai():
     genai.configure(api_key=get_current_api_key())
-    return genai.GenerativeModel("gemini-1.5-flash")
+    return genai.GenerativeModel("gemini-1.5-flash-8b")
 
 # Define a route for the chatbot interaction
 chat_history = [
