@@ -1,7 +1,7 @@
 // app/page.tsx
 import Image from "next/image";
-import Link from 'next/link';
-
+import Link from "next/link";
+import "./globals.css"
 
 export default function Home() {
   return (
@@ -9,25 +9,42 @@ export default function Home() {
       <div className="home-page-bg">
         <div className="flex-col-centered gap-[2vh]">
           <div className="flex-row-centered gap-[1vw]">
-            {/* Green Expectations Logo Image */}
+            <div className="flex-col-centered">
+              {/* GreenLiving Icon Image */}
               <Image
                 className="object-cover"
-                src="/green_expectations_logo.png"
+                src="/greenliving_iconv1.png"
                 alt="Green Expectations.png logo"
                 loading="eager"
-                width={50}
-                height={50}
+                width={100}
+                height={100}
                 priority
               />
-              <h1 className="text-4xl font-semibold">GEACRE Home</h1>
+              <a className="text-xs ml-auto" href="https://www.freepik.com/icons/house">Icon by Freepik</a>
+            </div>
+            <div className="flex-col-centered">
+              <h1 className="text-5xl font-semibold">Green</h1>
+              <h1 className="text-5xl mr-auto">Living</h1>
+            </div>
           </div>
 
           <div>
-              <p className="text-xl">Dedicated to building and creating sustainable and affordable housing solutions for New Jersey residents.</p>
+              <p className="text-2xl">
+                <span className="font-semibold">
+                  Building a 
+                  <span className="coffee-green font-semibold" style={{color:"#006241"}}>
+                    &nbsp;Greener&nbsp;
+                  </span> 
+                  Future: 
+                </span>
+               
+                &nbsp;Sustainable Homes and Eco-Friendly Living
+              </p>
           </div>
+          {/* TODO: Fix badly factored code. Currently setting text color manually instead of importing from globals.css. */}
         </div>
         
-        <div className="nav-ribbon-body mt-[2vh]">
+        <div className="nav-ribbon-body mt-[1vh]">
           {/* Card for Calculator */}
             <div className="nav-ribbon-card">
               <h2 className="nav-ribbon-card-title">
@@ -95,7 +112,7 @@ export default function Home() {
                 // Used to open website in a new tab
                 target="_blank" rel="noopener noreferrer"        
                 >
-                GreenExpectations
+                Learn More
                 <i className="ml-2 fa-solid fa-house"></i> {/* House Icon */}
                 </Link>
               </div>
