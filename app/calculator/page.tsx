@@ -109,11 +109,11 @@ const CalculatorPage: React.FC = () => {
         sustainabilityScore = "A";
       }
       else if (sustainabilityScoreInt == 20) {
-        sustainabilityScore = "S - Sustainable";
+        sustainabilityScore = "S";
       }
       else
       {
-        sustainabilityScore = "Error: sustainability score cannot be calculated.";
+        sustainabilityScore = "Error: no inputs found.";
       }
 
       testval.textContent = sustainabilityScore;

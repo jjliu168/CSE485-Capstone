@@ -112,7 +112,7 @@ export default function Home() {
                 // Used to open website in a new tab
                 target="_blank" rel="noopener noreferrer"        
                 >
-                Learn More
+                GreenifyAI
                 <i className="ml-2 fa-solid fa-house"></i> {/* House Icon */}
                 </Link>
               </div>

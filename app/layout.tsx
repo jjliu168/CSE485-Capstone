@@ -5,8 +5,8 @@ import "./globals.css";
 
 // Metadata for the application
 export const metadata: Metadata = {
-  title: "Green Expectations",
-  description: "Empowering Communities through green initiatives",
+  title: "Green Living",
+  description: "Empowering Communities through Green Initiatives",
   keywords: "sustainability, eco-friendly, solutions, housing",
   robots: "index, follow",
 };

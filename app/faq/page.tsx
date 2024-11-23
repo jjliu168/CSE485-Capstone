@@ -15,6 +15,8 @@ const FaqPage = () => {
         <p className="page-caption">
           Here are some answers to frequently asked questions!
         </p>
+
+        {/* TODO: Questions and answers currently hardcoded, want to add file input/parsing for automatic updates. */}
         <div className="flex flex-col w-3/4 mb-6 mt-2 bg-white shadow-lg rounded-lg p-6" style={{outline: "2px solid #22c55e"}}>
           <div>
             <div className="flex items-center space-x-2 mb-4">
