@@ -2,6 +2,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import Layout from './chatbot_layout';
+import Image from "next/image";
+import Link from "next/link";
 
 const ChatbotPage = () => {
     const [userInput, setUserInput] = useState('');
@@ -210,7 +212,7 @@ const ChatbotPage = () => {
                             >
                                 <i className="fa-solid fa-trash-can"></i>
                             </button>
-                    </div>
+                    </div>           
                 )}
                 
                 {/* Scroll-to-top button */}
@@ -258,6 +260,17 @@ const ChatbotPage = () => {
                     </button>
 
                 </div>
+                {/* Footer link to FAQ */}
+                {hasSentMessage &&
+                    (
+                    <div className="flex-row-centered h-[8vh]">
+                        <Link className="flex-row-centered gap-[0.75vw]" href="/faq" passHref>
+                        <i className="footer-icon fa-solid fa-lg fa-question-circle"></i> {/*} Question Mark Icon*/}
+                        <p className="footer-text"> How was our AI-powered chatbot developed? </p>
+                        </Link>
+                    </div> 
+                    )
+                }
             </div>
         </Layout>
     );
