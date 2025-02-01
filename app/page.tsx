@@ -8,11 +8,10 @@ export default function Home() {
     <div>
       <div className="home-page-bg">
         <div className="flex-col-centered gap-[2vh]">
-          <div className="flex-row-centered gap-[1vw]">
+          <div className="flex flex-row-centered gap-[1vw]">
             <div className="flex-col-centered">
-              {/* GreenLiving Icon Image */}
               <Image
-                className="object-cover"
+                className="w-[100px] h-[100px]"
                 src="/greenliving_iconv1.png"
                 alt="Green Living logo"
                 loading="eager"
@@ -26,8 +25,8 @@ export default function Home() {
               <h1 className="text-5xl mr-auto">Living</h1>
             </div>
           </div>
-
-          <div>
+          {/* Title after icon */}
+          <div className="mt-16 sm:mt-0 px-4 text-center"> {/* add margin and centering of the text when mobile only*/}
               <p className="text-2xl">
                 <span className="font-semibold">
                   Building a 
