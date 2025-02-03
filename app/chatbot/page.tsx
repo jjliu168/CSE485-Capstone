@@ -174,9 +174,9 @@ const ChatbotPage = () => {
 
             <div className="default-page-bg">
                 <h1 className="page-title">Chatbot</h1>
-                <p className="page-caption">
-                    Ask our Chatbot anything about sustainable housing and living!
-                </p>
+                <p className="page-caption text-center mx-auto break-words max-w-[90%] sm:max-w-[70%]">
+                Ask our Chatbot anything about sustainable housing and living!
+            </p>
                 {/* Chat area Post Rendered when first message sent */}    
                 {hasSentMessage && (  
                     <div className="flex items-start w-full max-w-4xl mb-4">

@@ -27,19 +27,17 @@ export default function Home() {
           </div>
           {/* Title after icon */}
           <div className="mt-16 sm:mt-0 px-4 text-center"> {/* add margin and centering of the text when mobile only*/}
-              <p className="text-2xl">
-                <span className="font-semibold">
-                  Building a 
-                  <span className="coffee-green font-semibold" style={{color:"#006241"}}>
-                    &nbsp;Greener&nbsp;
-                  </span> 
-                  Future: 
-                </span>
-               
-                &nbsp;Sustainable Homes and Eco-Friendly Living
-              </p>
+            <p className="text-2xl">
+              <span className="font-semibold">
+                Building a 
+                <span className="coffee-green font-semibold" style={{color:"#006241"}}>
+                  &nbsp;Greener&nbsp;
+                </span> 
+                Future:
+              </span>
+              &nbsp;Sustainable Homes and Eco-Friendly Living
+            </p>
           </div>
-          {/* TODO: Fix badly factored code. Currently setting text color manually instead of importing from globals.css. */}
         </div>
         
         <div className="nav-ribbon-body mt-[1vh]">
