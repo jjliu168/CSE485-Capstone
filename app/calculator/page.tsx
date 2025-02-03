@@ -4,6 +4,8 @@
 // Important for creation of the logo top right
 import Layout from "./calculator_layout";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 import './custom_radio.css';
 
@@ -34,7 +36,8 @@ const CalculatorPage: React.FC = () => {
     setAirQuality(event.target.id); };
     
   const calculateScore = () => {
-    const testval = document.getElementById("sustainabilityScoreLabel");
+    const sustainabilityScoreDisplay = document.getElementById("sustainabilityScoreLabel");
+    const sustainabilityScoreExplanationDisplay = document.getElementById("sustainabilityScoreExplanation");
 
     let sustainabilityScoreInt:number = -1;
     let energyConsumptionScore:number;
@@ -86,8 +89,9 @@ const CalculatorPage: React.FC = () => {
                              airQualityScore;
     
     let sustainabilityScore:string;
+    let sustainabilityScoreDetail:string;
 
-    if (!testval)
+    if (!sustainabilityScoreDisplay || !sustainabilityScoreExplanationDisplay)
     {
       console.error("No element found.");
     }
@@ -95,28 +99,36 @@ const CalculatorPage: React.FC = () => {
     {
       if (sustainabilityScoreInt > 0 && sustainabilityScoreInt <= 5) {
         sustainabilityScore = "F";
+        sustainabilityScoreDetail = "Oh no! A score of F indicates that multiple areas of your home and lifestyle can be improved to become more sustainable.";
+
       }
       else if (sustainabilityScoreInt > 5 && sustainabilityScoreInt <= 10) {
         sustainabilityScore = "D";
+        sustainabilityScoreDetail = "Oh no! A score of D indicates that one or more areas of your home and lifestyle can be improved to become more sustainable.";
       }
       else if (sustainabilityScoreInt > 10 && sustainabilityScoreInt <= 13) {
         sustainabilityScore = "C";
+        sustainabilityScoreDetail = "You are doing alright! A score of C indicates that your home and lifestyle are somewhat helping to create a cleaner environment.";
       }
       else if (sustainabilityScoreInt > 13 && sustainabilityScoreInt <= 16) {
         sustainabilityScore = "B";
+        sustainabilityScoreDetail = "Good job! Your home and lifestyle for the most part are helping create a cleaner environment!";
       }
       else if (sustainabilityScoreInt > 16 && sustainabilityScoreInt <= 19) {
         sustainabilityScore = "A";
+        sustainabilityScoreDetail = "Nice job! Your home and lifestyle are helping create a cleaner environment!";
       }
       else if (sustainabilityScoreInt == 20) {
-        sustainabilityScore = "S - Sustainable";
+        sustainabilityScore = "S";
+        sustainabilityScoreDetail = "Perfect! Your home and lifestyle are helping create a cleaner environment!";
       }
       else
       {
-        sustainabilityScore = "Error: sustainability score cannot be calculated.";
+        sustainabilityScore = "Error: no inputs found.";
       }
 
-      testval.textContent = sustainabilityScore;
+      sustainabilityScoreDisplay.textContent = sustainabilityScore;
+      sustainabilityScoreExplanationDisplay.textContent = sustainabilityScoreDetail;
     }
   }
 
@@ -307,12 +319,17 @@ const CalculatorPage: React.FC = () => {
           { /* Label to display sustainability score */}
           <div className="flex-col-centered">
             <label htmlFor="sustainabilityScoreLabel" id="sustainabilityScoreLabel" className="text-6xl font-semibold"> </label>
+            <label htmlFor="sustainabilityScoreExplanation" id="sustainabilityScoreExplanation" className="text-2xl"></label>
           </div>
         </div>
       </div>
       
-      <div className="h-[5vh]">
-        <p className="opacity-0"> Text for spacing </p>
+      {/* Footer link to FAQ */}
+      <div className="flex-row-centered h-[8vh]">
+        <Link className="flex-row-centered gap-[0.75vw]" href="/faq" passHref>
+          <i className="footer-icon fa-solid fa-lg fa-question-circle"></i> {/*} Question Mark Icon*/}
+          <p className="footer-text"> How is sustainability score calculated? </p>
+        </Link>
       </div>
 
     </div>

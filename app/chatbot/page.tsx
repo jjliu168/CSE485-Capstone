@@ -2,6 +2,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import Layout from './chatbot_layout';
+import Image from "next/image";
+import Link from "next/link";
 
 const ChatbotPage = () => {
     const [userInput, setUserInput] = useState('');
@@ -172,9 +174,9 @@ const ChatbotPage = () => {
 
             <div className="default-page-bg">
                 <h1 className="page-title">Chatbot</h1>
-                <p className="page-caption">
-                    Ask our Chatbot anything about sustainable housing and living!
-                </p>
+                <p className="page-caption text-center mx-auto break-words max-w-[90%] sm:max-w-[70%]">
+                Ask our Chatbot anything about sustainable housing and living!
+            </p>
                 {/* Chat area Post Rendered when first message sent */}    
                 {hasSentMessage && (  
                     <div className="flex items-start w-full max-w-4xl mb-4">
@@ -210,7 +212,7 @@ const ChatbotPage = () => {
                             >
                                 <i className="fa-solid fa-trash-can"></i>
                             </button>
-                    </div>
+                    </div>           
                 )}
                 
                 {/* Scroll-to-top button */}
@@ -258,6 +260,17 @@ const ChatbotPage = () => {
                     </button>
 
                 </div>
+                {/* Footer link to FAQ */}
+                {hasSentMessage &&
+                    (
+                    <div className="flex-row-centered h-[8vh]">
+                        <Link className="flex-row-centered gap-[0.75vw]" href="/faq" passHref>
+                        <i className="footer-icon fa-solid fa-lg fa-question-circle"></i> {/*} Question Mark Icon*/}
+                        <p className="footer-text"> How was our AI-powered chatbot developed? </p>
+                        </Link>
+                    </div> 
+                    )
+                }
             </div>
         </Layout>
     );

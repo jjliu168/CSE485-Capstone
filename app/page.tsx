@@ -1,7 +1,7 @@
 // app/page.tsx
 import Image from "next/image";
-import Link from 'next/link';
-
+import Link from "next/link";
+import "./globals.css"
 
 export default function Home() {
   return (
@@ -9,25 +9,39 @@ export default function Home() {
       <div className="home-page-bg">
         <div className="flex-col-centered gap-[2vh]">
           <div className="flex-row-centered gap-[1vw]">
-            {/* Green Expectations Logo Image */}
+            <div className="flex-col-centered">
+              {/* GreenLiving Icon Image */}
               <Image
                 className="object-cover"
-                src="/green_expectations_logo.png"
-                alt="Green Expectations.png logo"
+                src="/greenliving_iconv1.png"
+                alt="Green Living logo"
                 loading="eager"
-                width={50}
-                height={50}
+                width={100}
+                height={100}
                 priority
               />
-              <h1 className="text-4xl font-semibold">GEACRE Home</h1>
+            </div>
+            <div className="flex-col-centered">
+              <h1 className="text-5xl font-semibold">Green</h1>
+              <h1 className="text-5xl mr-auto">Living</h1>
+            </div>
           </div>
 
           <div>
-              <p className="text-xl">Dedicated to building and creating sustainable and affordable housing solutions for New Jersey residents.</p>
+            <p className="text-2xl text-center">
+              <span className="font-semibold">
+                Building a
+                <span className="coffee-green font-semibold" style={{ color: "#006241" }}>
+                  &nbsp;Greener&nbsp;
+                </span>
+                Future:
+              </span>
+              &nbsp;Sustainable Homes and Eco-Friendly Living
+            </p>
           </div>
         </div>
         
-        <div className="nav-ribbon-body mt-[2vh]">
+        <div className="nav-ribbon-body mt-[1vh]">
           {/* Card for Calculator */}
             <div className="nav-ribbon-card">
               <h2 className="nav-ribbon-card-title">
@@ -42,7 +56,7 @@ export default function Home() {
                 className="nav-ribbon-card-button"
               >
                 Calculator
-                <i className="ml-2 fa-solid fa-calculator"></i>
+                <i className="ml-2 fa-lg fa-solid fa-calculator"></i>
               </Link>
             </div>
 
@@ -60,7 +74,7 @@ export default function Home() {
                   className="nav-ribbon-card-button"
                 >
                   Chatbot
-                  <i className="ml-2 fa-regular fa-comment"></i>
+                  <i className="ml-2 fa-lg fa-regular fa-comment"></i>
                 </Link>
               </div>
 
@@ -76,35 +90,38 @@ export default function Home() {
                   className="nav-ribbon-card-button"
                 >
                   FAQ
-                  <i className="ml-2 fa-solid fa-question"></i>
+                  <i className="ml-2 fa-lg fa-regular fa-question-circle"></i>
                 </Link>
               </div>
 
             {/* Card for Green Expectations */}
               <div className="nav-ribbon-card">
                 <h2 className="nav-ribbon-card-title">
-                  Green Expectations
+                  GreenifyAI
                 </h2>
                 <p className="nav-ribbon-card-caption">
                   Learn more about Green Expectations and sustainable housing.
                 </p>
                 {/* Link to the GreenExpectations Real Estate website */}
                 <Link
-                href="https://greenexpectations.us/"
+                href="https://greenifyai.com/"
                 className="nav-ribbon-card-button"
                 // Used to open website in a new tab
                 target="_blank" rel="noopener noreferrer"        
                 >
-                GreenExpectations
-                <i className="ml-2 fa-solid fa-house"></i> {/* House Icon */}
+                GreenifyAI
+                <i className="ml-2 fa-lg fa-solid fa-house"></i> {/* House Icon */}
                 </Link>
               </div>
         </div>
 
-        {/* used for spacing */}
-        <div>
+        {/* Footer link to FAQ */}
+        <div className="flex-row-centered h-[4vh]">
+          <Link className="flex-row-centered gap-[0.75vw]" href="/faq" passHref>
+            <i className="footer-icon fa-solid fa-lg fa-info-circle"></i> {/*} Question Mark Icon*/}
+            <p className="footer-text"> GreenLiving vs. GreenifyAI vs. GreenExpectations </p>
+          </Link>
         </div>
-
       </div>
     </div>
   );
