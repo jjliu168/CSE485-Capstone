@@ -61,6 +61,7 @@ def chat_with_bot():
 
     # Detect language
     language = detect_language(user_question)
+    logging.info(f"Detected language: {language}")
 
     # If the detected language is not English, include it in the system instructions
     if language != 'en':
@@ -68,6 +69,8 @@ def chat_with_bot():
 
     # Append the user's question to the chat history
     chat_history.append({"role": "user", "parts": user_question})
+
+    logging.info(f"User question: {user_question}")
 
     try:
         # Create a new chat session
@@ -80,15 +83,16 @@ def chat_with_bot():
     except Exception as e:
         # If rate limit error (or other error), switch the API key and retry
         if 'rate limit' in str(e).lower():  # You can refine this check depending on the error message
-            print(f"Rate limit reached for API Key {get_current_api_key()}. Switching to the next key.")
+            logging.warning(f"Rate limit reached for API Key {get_current_api_key()}. Switching to the next key.")
             switch_api_key()  # Switch to the next API key
             time.sleep(2)  # Optional: Wait a little before retrying
             return chat_with_bot()  # Retry with the new API key
         else:
-            print("Error calling chat model:", str(e))
+            logging.error(f"Error calling chat model: {str(e)}")
             return jsonify({"error": "Failed to communicate with the model."}), 500
 
     response_text = response.text if hasattr(response, 'text') else "No response text available"
+    logging.info(f"Model response: {response_text}")
 
     # Append the model's response to the chat history
     chat_history.append({"role": "model", "parts": response_text})
